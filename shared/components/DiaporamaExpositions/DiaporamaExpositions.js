@@ -18,19 +18,7 @@ function DiaporamaExpositions(props) {
   const [exposition, setExposition] = useState(DiaporamaInitialData);
   let expositionImageUrls = [];
 
-  console.log(
-    'isBrowser',
-    __isBrowser__,
-    'Diaporamainitialdata',
-    window.__INITIAL_DATA__,
-    'props',
-    props,
-    'exposition',
-    exposition,
-  );
-
   useEffect(() => {
-    console.log('url', `${REACT_APP_BASE_URL}/diaporamaExposition`);
     const getData = async () => {
       const response = await fetchDat(
         `${REACT_APP_BASE_URL}/diaporamaExposition`,
@@ -43,12 +31,11 @@ function DiaporamaExpositions(props) {
       getData();
     }
   }, []);
-  console.log('!exposition', !exposition);
-  console.log('!exposition && __isBrowser__', !exposition && __isBrowser__);
+
   if (!exposition && __isBrowser__) {
     return null;
   }
-  console.log('exposition : ', exposition);
+
   for (let i = 0; i < exposition.length; i++) {
     expositionImageUrls.push({
       imageUrl: `${REACT_APP_BASE_URL}/image/${exposition[i].image_exposition}`,
