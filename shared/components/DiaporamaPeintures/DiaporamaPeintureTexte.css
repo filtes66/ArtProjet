@@ -1,0 +1,21 @@
+.diaporamaPeintureTexte {
+  padding: 30px;
+  width: 40%;
+}
+
+.diaporamaPeintureTexte__titre {
+  margin-bottom: 5px;
+}
+
+.diaporamaPeintureTexte__auteur {
+  margin-bottom: 5px;
+}
+
+.diaporamaPeintureTexte__date {
+  margin-bottom: 5px;
+}
+
+.diaporamaPeintureTexte__source {
+  bottom: 2rem;
+  position: absolute;
+}

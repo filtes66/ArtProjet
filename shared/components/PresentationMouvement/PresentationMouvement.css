@@ -1,0 +1,53 @@
+.mouvement-presentation__wrapper {
+  background-color: white;
+  padding: 40px 60px 60px 60px;
+}
+
+.mouvement-presentation__titre {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #263238;
+}
+
+.mouvement-presentation__comment {
+  margin: 30px 0 40px 0;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: #37474f;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.mouvement-presentation__flex-raw {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 0 30px 0;
+  border-bottom: dotted #a79c9c 1px;
+}
+
+.mouvement-presentation__image-oeuvre {
+  background-color: #f4f4f8;
+  text-align: center;
+  flex: 0 0 300px;
+  height: 164px;
+}
+
+.mouvement-presentation__reference-oeuvre {
+  margin: 0 0 0 20px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  color: #484e50;
+  line-height: 1.7em;
+}
+
+.mouvement-presentation__auteur-oeuvre {
+  margin: 0 0 10px 0;
+}
+
+.mouvement-presentation__titre-oeuvre {
+  margin: 0 0 1px 0;
+}
+
+.mouvement-presentation__commentaire-oeuvre {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

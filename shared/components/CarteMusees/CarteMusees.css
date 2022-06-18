@@ -1,0 +1,52 @@
+@import '~leaflet/dist/leaflet.css';
+
+.carte-musees {
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+.carte-musees__wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0 20px;
+}
+
+.carte-musees__command {
+  padding: 4px 6px;
+  background: white;
+  font: 0.87rem/1rem Arial, Verdana, Helvetica, sans-serif;
+  color: #263238;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  min-width: 200px;
+}
+
+.carte-musees__pop-up {
+  width: 190px;
+}
+
+.carte-musees__carte {
+  flex: 0 0 60%;
+  height: 850px;
+  width: 100%;
+}
+
+.carte-musees__info-pratiques {
+  background: white;
+  padding: 30px;
+  border-radius: 2px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: #37474f;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.carte-musees__nom-musee {
+  color: #263238;
+}
+
+.carte-musees__button {
+  border: none;
+}

@@ -1,0 +1,18 @@
+.commentaire__wrapper {
+  padding: 60px;
+  background-color: white;
+}
+
+.commentaire__titre {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #263238;
+}
+
+.commentaire__contenu {
+  margin-top: 30px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  text-align: justify;
+  color: #37474f;
+  line-height: 1.5;
+}

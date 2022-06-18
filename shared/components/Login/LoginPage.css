@@ -1,0 +1,96 @@
+.login-submit {
+  background-color: #179bd7;
+  width: 100%;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.login-btn {
+  padding-top: 30px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-submit:hover {
+  opacity: 0.8;
+}
+
+.login-input-field {
+  position: relative;
+  height: 32px;
+  border-radius: 4px;
+  border: 2px solid #bebebe;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
+
+.login-lock {
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  color: #a9a4a4;
+}
+
+.login-input-req {
+  color: #95b0ca;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  width: 100%;
+}
+
+.login-input {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  height: 22px;
+  outline: 0;
+  padding: 4px 5px 0 35px;
+  width: 270px;
+}
+
+.login-container {
+  background-image: url('https://www.monprojetdev.fr/image/Login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 100vh;
+  position: relative;
+}
+
+.login-titre-1 {
+  color: #6bb7f9;
+  left: 50%;
+  position: absolute;
+  top: 10%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.login-titre-2 {
+  color: white;
+  font-size: 30px;
+  left: 50%;
+  position: absolute;
+  top: 40%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.login-form {
+  color: white;
+  left: 50%;
+  position: absolute;
+  top: 60%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 280px;
+}

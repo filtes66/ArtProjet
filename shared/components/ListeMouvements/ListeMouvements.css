@@ -1,0 +1,31 @@
+.liste-mouvements {
+  color: #263238;
+}
+
+.liste-mouvements__wrapper {
+  padding: 60px 60px 60px 60px;
+}
+
+.liste-mouvements__titre {
+  color: #263238;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.liste-mouvement__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: repeat(9, auto);
+  justify-items: center;
+  margin-top: 40px;
+  grid-gap: 10px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+.liste-mouvement__lien {
+  margin: 1rem 0 1rem 0;
+}
+
+.liste-mouvement__legende {
+  padding-top: 0.6rem;
+  color: #26424f;
+}

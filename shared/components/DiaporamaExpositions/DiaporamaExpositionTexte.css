@@ -1,0 +1,25 @@
+.diaporamaExpositionTexte {
+  padding: 30px;
+  width: 40%;
+}
+
+.diaporamaExpositionTexte__titre {
+  margin-bottom: 20px;
+}
+
+.diaporamaExpositionTexte__auteur {
+  margin-bottom: 5px;
+}
+
+.diaporamaExpositionTexte__date {
+  margin-bottom: 10px;
+}
+
+.diaporamaExpositionTexte__top {
+  bottom: 2rem;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 600;
+  left: 100px;
+  position: absolute;
+}

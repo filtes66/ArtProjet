@@ -1,0 +1,42 @@
+.diaporama-calendar__flex {
+  margin-bottom: 50px;
+}
+
+.diaporama-exposition {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  flex: 0 0 70%;
+  padding: 30px 100px 30px 100px;
+  background-color: whitesmoke;
+}
+
+.liste-expositions__diaporama-wrapper {
+  height: 375px;
+}
+
+.liste-expositions__mainWrapper-flex {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+}
+
+.liste-expositions__flex-column {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 70%;
+  border-radius: 10px;
+}
+
+.liste-expositions__calendrier-wrapper {
+  position: relative;
+  flex: 0 0 30%;
+}
+
+.liste-expositions__calendrier {
+  position: absolute;
+  background-color: #f5f5f5;
+  font-size: 0.94rem;
+  border: 1px solid #263238;
+  border-radius: 2px;
+  top: 40px;
+  right: 40px;
+}

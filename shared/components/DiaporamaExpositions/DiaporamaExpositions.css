@@ -1,0 +1,26 @@
+.diaporamaExposition__references {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  padding: 30px;
+}
+
+.diaporamaExposition__titre {
+  margin-bottom: 20px;
+}
+
+.diaporamaExposition__auteur {
+  margin-bottom: 5px;
+}
+
+.diaporamaExposition__wrapper-images {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  bottom: 0;
+  width: 60%;
+  overflow: hidden;
+  transition: opacity 1s;
+}

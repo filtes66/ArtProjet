@@ -1,0 +1,35 @@
+.exposition__flex-raw {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.2;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.exposition__titre {
+  margin: 0 15px 10px 15px;
+  color: #263238;
+  font-family: 'Arial,Verdana,Helvetica,sans-serif';
+}
+
+.exposition__reference {
+  padding: 0 15px 15px 15px;
+  color: #37474f;
+  line-height: 1.2rem;
+  font-size: 1.1srem;
+  font-family: 'Arial,Verdana,Helvetica,sans-serif';
+}
+
+.exposition__image {
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background-size: 4px 4px, 4px 4px;
+}
+
+.exposition__image img {
+  width: 100px;
+  height: 120px;
+  text-align: center;
+}

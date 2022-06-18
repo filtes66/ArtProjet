@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+html {
+  background-color: darkslategray;
+  font-size: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  width: 1000px;
+  margin: 0 auto;
+}

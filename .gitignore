@@ -1,0 +1,8 @@
+node_modules/
+.env
+public/
+package-lock.json
+coverage/
+tmp/
+bin/
+credancies/
