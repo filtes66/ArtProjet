@@ -8,10 +8,6 @@ import './App.css';
 import routes from './routes';
 import LoginPage from './components/Login/LoginPage';
 
-if (__isBrowser__) {
-  window.nom_de_domaine = 'http//localhost:4000';
-}
-
 function LayoutComponent({ component: Component, layout: Layout, SSRData }) {
   return (
     <Layout>
