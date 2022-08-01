@@ -17,29 +17,30 @@ function CarteMusees(props) {
 
   useEffect(() => {
     require('leaflet/dist/leaflet.css');
-    let {
-      MapContainer: LeafletMap,
-      LayersControl,
-      Marker,
-      TileLayer,
-      Popup,
-    } = require('react-leaflet');
-
-    var L = require('leaflet');
-
-    setMusee({
-      ...museum,
-      leaflet: {
-        L,
-      },
-      components: {
-        LeafletMap,
+    async function loadLeaflet() {
+      const {
+        MapContainer: LeafletMap,
         LayersControl,
         Marker,
         TileLayer,
         Popup,
-      },
-    });
+      } = await import('react-leaflet');
+      var L = require('leaflet');
+      setMusee({
+        ...museum,
+        leaflet: {
+          L,
+        },
+        components: {
+          LeafletMap,
+          LayersControl,
+          Marker,
+          TileLayer,
+          Popup,
+        },
+      });
+    }
+    loadLeaflet()
   }, []);
 
   const { components, leaflet, lat, lng, zoom, musee } = museum;
