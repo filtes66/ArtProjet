@@ -7,8 +7,6 @@ import './DiaporamaExpositions.css';
 
 function DiaporamaExpositions(props) {
   let DiaporamaInitialData;
-  /*let isBrowser =
-    props.isBrowser !== undefined ? props.isBrowser : __isBrowser__;*/
   if (__isBrowser__) {
     DiaporamaInitialData = window.__INITIAL_DATA__;
   } else {
@@ -16,17 +14,20 @@ function DiaporamaExpositions(props) {
   }
 
   const [exposition, setExposition] = useState(DiaporamaInitialData);
-  let expositionImageUrls = [];
+
+  console.log('exposition', exposition)
 
   useEffect(() => {
     const getData = async () => {
       const response = await fetchDat(
         `${REACT_APP_BASE_URL}/diaporamaExposition`,
       );
+      console.log("response", response)
       setExposition(response);
     };
     if (window.__INITIAL_DATA__) {
       delete window.__INITIAL_DATA__;
+      console.log("delete windowinitialdata")
     } else {
       getData();
     }
@@ -36,12 +37,11 @@ function DiaporamaExpositions(props) {
     return null;
   }
 
-  for (let i = 0; i < exposition.length; i++) {
-    expositionImageUrls.push({
-      imageUrl: `${REACT_APP_BASE_URL}/image/${exposition[i].image_exposition}`,
-      id: exposition[i].id_exposition,
-    });
-  }
+  const expositionImageUrls = exposition.map(exposition => ({
+    imageUrl: `${REACT_APP_BASE_URL}/image/${exposition.image_exposition} `,
+    id: exposition.id_exposition
+  }))
+
 
   return (
     <Diaporama
