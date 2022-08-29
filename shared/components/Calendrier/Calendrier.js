@@ -80,13 +80,10 @@ function Calendrier(props) {
   }
 
   const weekdaysShort = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-  const weekdaysCells = weekdaysShort.map((day) => {
-    return (
-      <div key={day} className="calendrier__week-day">
-        {day}
-      </div>
-    );
-  });
+  const weekdaysCells = weekdaysShort.map(day =>
+    <div key={day} className="calendrier__week-day">
+      {day}
+    </div>);
 
   const blankCells = [];
   for (let i = 0; i < firstDayOfMonth(); i++) {
