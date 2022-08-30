@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { REACT_APP_BASE_URL } from '../../../constants/environment';
 import './Footer.css';
@@ -7,12 +7,19 @@ import { Link } from 'react-router-dom';
 import 'core-js';
 
 function Footer(props) {
-  // exemple de liste
-  /*let liste= [{nomListe: "Expositions", nomItems: ["Agenda Expositions", "Top Expositions"]},
-{nomListe: "Mouvements picturaux", path_liste:"/presentation-du-mouvement/", 
-nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme", "Expressionisme", "Néo-classicisme", 
-"Post-impressionnisme", "Réalisme", "Renaissance", "Rococo", "Romantisme", "Surréalisme", "Ukiyo", "Symbolisme"]},
-{nomListe: "Musées de Paris", nomItems: ["Musée du Louvre", "Musée d'Orsay"]}]*/
+  // example of list
+  /* let liste = [{ nomItems: [{ id: "", nom: "Agenda expositions", nomListe: "Expositions", pathLink: "/agenda" }] },
+   {
+     nomItems: [{ nom: 'Impressionnisme', id: 1 }, { nom: 'Gothique', id: 5 }, { nom: 'Art nouveau', id: 6 },
+     { nom: 'Baroque', id: 7 }, { nom: 'Classicisme', id: 8 }, { nom: 'Expressionisme', id: 9 },
+     { nom: 'Néo-classicisme', id: 11 }, { nom: 'Post-impressionisme', id: 12 },
+     { nom: 'Réalisme', id: 13 }, { nom: 'Renaissance', id: 14 }, { nom: 'Rococo', id: 15 },
+     { nom: 'Romantisme', id: 16 }, { nom: 'Ukiyo', id: 18 }, { nom: 'Symbolisme', id: 19 }]
+   },
+   {
+     nomItems: [{ nom: 'Musée du Louvre', id: 1 }, { nom: "Musée d'Orsay", id: 2 },
+     { nom: 'Le Grand Palais', id: 3 }]
+   }]*/
 
   console.log('footer');
   let [selectedList, setSelectedList] = useState({
@@ -59,7 +66,6 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
             nomItems = [...nomItems, { nom: nom_mouvement, id: id_mouvement }];
             return nomItems;
           });
-          console.log('nom_mouvement', response);
           lists = [
             ...lists,
             {
@@ -96,6 +102,7 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
           );
           response = await response.json();
           await createListe(response, listesData[i].nomColonne);
+          console.log('list', lists);
         }
         setListes(lists);
       } catch (err) {
