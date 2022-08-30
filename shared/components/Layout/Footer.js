@@ -47,11 +47,11 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
         case 'nom_exposition':
           lists = [
             ...lists,
-            Object.assign(
-              { nomListe: 'Expositions' },
-              { nomItems: [{ nom: 'Agenda expositions', id: '' }] },
-              { pathLink: '/agenda' },
-            ),
+            {
+              nomListe: 'Expositions',
+              nomItems: [{ nom: 'Agenda expositions', id: '' }],
+              pathLink: '/agenda'
+            },
           ];
           break;
         case 'nom_mouvement':
@@ -62,11 +62,11 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
           console.log('nom_mouvement', response);
           lists = [
             ...lists,
-            Object.assign(
-              { nomListe: 'Mouvements picturaux' },
-              { nomItems: nomItems },
-              { pathLink: '/presentation-du-mouvement/' },
-            ),
+            {
+              nomListe: 'Mouvements picturaux',
+              nomItems: nomItems,
+              pathLink: '/presentation-du-mouvement/'
+            },
           ];
           break;
         case 'nom_musee':
@@ -76,11 +76,11 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
           });
           lists = [
             ...lists,
-            Object.assign(
-              { nomListe: 'Musée de Paris' },
-              { nomItems: nomItems },
-              { pathLink: '/carte-des-musees/' },
-            ),
+            {
+              nomListe: 'Musée de Paris',
+              nomItems: nomItems,
+              pathLink: '/carte-des-musees/'
+            },
           ];
           break;
         default:
@@ -136,26 +136,23 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
   return (
     <div className="layout-footer">
       <div
-        className={`${
-          !selected[0] ? 'layout-footer__separator plus' : 'minus'
-        }`}
+        className={`${!selected[0] ? 'layout-footer__separator plus' : 'minus'
+          }`}
       >
         <div
-          className={`${
-            !selected[0]
-              ? 'layout-footer__title layout-footer__plus'
-              : 'layout-footer__title layout-footer__minus'
-          }`}
+          className={`${!selected[0]
+            ? 'layout-footer__title layout-footer__plus'
+            : 'layout-footer__title layout-footer__minus'
+            }`}
           onClick={() => setClassName(0)}
         >
           {listes[0].nomListe}
         </div>
         <div
-          className={`${
-            !selected[0]
-              ? 'layout-footer__list--closed'
-              : 'layout-footer__list--open'
-          }`}
+          className={`${!selected[0]
+            ? 'layout-footer__list--closed'
+            : 'layout-footer__list--open'
+            }`}
         >
           <RenderListItems
             pathLink={listes[0].pathLink}
@@ -167,26 +164,23 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
       </div>
 
       <div
-        className={`${
-          !selected[1] ? 'layout-footer__separator plus' : 'minus'
-        }`}
+        className={`${!selected[1] ? 'layout-footer__separator plus' : 'minus'
+          }`}
       >
         <div
-          className={`${
-            !selected[1]
-              ? 'layout-footer__title layout-footer__plus'
-              : 'layout-footer__title layout-footer__minus'
-          }`}
+          className={`${!selected[1]
+            ? 'layout-footer__title layout-footer__plus'
+            : 'layout-footer__title layout-footer__minus'
+            }`}
           onClick={() => setClassName(1)}
         >
           {listes[1].nomListe}
         </div>
         <div
-          className={`${
-            !selected[1]
-              ? 'layout-footer__list--closed'
-              : 'layout-footer__list--open'
-          }`}
+          className={`${!selected[1]
+            ? 'layout-footer__list--closed'
+            : 'layout-footer__list--open'
+            }`}
         >
           <RenderListItems
             pathLink={listes[1].pathLink}
@@ -198,11 +192,10 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
       </div>
 
       <div
-        className={`${
-          !selected[1]
-            ? 'layout-footer__list--closed'
-            : 'layout-footer__list--open'
-        }`}
+        className={`${!selected[1]
+          ? 'layout-footer__list--closed'
+          : 'layout-footer__list--open'
+          }`}
       >
         <RenderListItems
           pathLink={listes[1].pathLink}
@@ -213,11 +206,10 @@ nomItems: ["Impressionisme", "Gothique", "Art Nouveau", "Baroque", "Classicisme"
       </div>
 
       <div
-        className={`${
-          !selected[1]
-            ? 'layout-footer__separator layout-footer__list--closed'
-            : 'layout-footer__separator layout-footer__list--open'
-        }`}
+        className={`${!selected[1]
+          ? 'layout-footer__separator layout-footer__list--closed'
+          : 'layout-footer__separator layout-footer__list--open'
+          }`}
       >
         <RenderListItems
           pathLink={listes[1].pathLink}
