@@ -4,6 +4,7 @@ import cors from 'cors';
 import React from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import { matchPath } from 'react-router-dom';
+import serialize from "serialize-javascript"
 import routes from '../shared/routes';
 import App from '../shared/App';
 import { connection } from './bin/mysqlConnection';
@@ -82,9 +83,9 @@ app.get('/*', (req, res) => {
                             <meta charset="utf-8">
                             <title>React SSR</title>
                                 <script>
-                                    window.__INITIAL_DATA__ = ${JSON.stringify(
-                                      initialData,
-                                    )}
+                                    window.__INITIAL_DATA__ = ${serialize(
+          initialData,
+        )}
                                 </script>
                                 <script async src="http://localhost:4000/bundle-front.js"></script>
                             <link rel="stylesheet" type="text/css" href="http://localhost:4000/main.css" />
