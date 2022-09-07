@@ -18,7 +18,6 @@ const Diaporama = (props) => {
       } else if (side === 1 && currentImage === totalImages) {
         newCurrentImage = 0;
       }
-      console.log('currentImage renderImage : ', currentImage);
       setCurrentImage(newCurrentImage + side);
     };
     return {
@@ -44,7 +43,6 @@ const Diaporama = (props) => {
   }, [renderImage, diapoPause]);
 
   let currentImageUrl = props.imageUrls[currentImage - 1];
-
   return (
     <div
       className="diaporama__wrapper"
@@ -65,6 +63,7 @@ const Diaporama = (props) => {
         className="diaporama__precedent"
         onClick={() => handleRenderImage('precedant')}
         onMouseOut={handleStartDiapo}
+        data-testid="LeftButtonTest"
       >
         <FaChevronLeft />
       </button>
@@ -72,6 +71,7 @@ const Diaporama = (props) => {
         className="diaporama__suivant"
         onClick={() => handleRenderImage('suivant')}
         onMouseOut={handleStartDiapo}
+        data-testid="RightButtonTest"
       >
         <FaChevronRight />
       </button>
