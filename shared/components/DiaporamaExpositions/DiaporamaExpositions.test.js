@@ -1,57 +1,100 @@
-/**
- * @jest-environment jsdom
- */
-import '@testing-library/jest-dom';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { screen, render, act } from '@testing-library/react';
+import { screen, render, waitFor, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
+import { mockData } from '../../mocks/mockData';
 import DiaporamaExpositions from './DiaporamaExpositions';
-import { StaticRouter } from 'react-router-dom/server';
-let mockData = [
-  {
-    adresse: 'Rue De Rivoli, Paris 75001',
-    commentaire_exposition:
-      'Le Musée Jacquemart-André présente une grande rétrospective de Joseph Turner.',
-    date_debut: '2020-03-13',
-    id_exposition: 1,
-    image_exposition: 'Turner.jpg',
-    nom_exposition: 'Turner',
-    nom_musee: 'Musée du Louvre',
-  },
-  {
-    adresse: 'Rue De Rivoli, Paris 75001',
-    commentaire_exposition:
-      "À partir des années 1880, la Méditerranée séduit les artistes. Ils délaissent Paris ou le Nord et se réunissent le long du littoral, de Collioure à Saint-Tropez. Ils y élaborent une nouvelle conception de la lumière et de la couleur. Le parcours d'exposition, de l’impressionnisme à la modernité, révèle le lien entre la création artistique et ces rives méditerranéennes. Une invitation à plonger dans les chefs-d’œuvre d’une vingtaine d’artistes dont Renoir, Monet, Pissarro, Matisse, Signac, Derain, Vlaminck, Dufy et Chagall./ /Le cycle de projection accueille également une immersion dans L'infini bleu de Klein.",
-    date_debut: '2020-02-28',
-    date_fin: '2021-01-03',
-    id_exposition: 2,
-    image_exposition: 'Monet-Renoir-Chagall-expo.jpg',
-    nom_exposition: 'Monet, Renoir... Chagall — Voyages en Méditerranée',
-    nom_musee: 'Musée du Louvre',
-  },
-];
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(mockData),
-  }),
-);
+test('First render in the browser with mockData from window.__INITIAL_DATA__ ',
+  async () => {
+    window.__INITIAL_DATA__ = mockData;
+    render(
+      <MemoryRouter>
+        <DiaporamaExpositions
+          height="375px"
+          //  oeuvreData={mockData}
+          width="auto"
+        //  isBrowser={true}
+        />
+      </MemoryRouter>,
+    );
 
-beforeEach(() => {
-  fetch.mockClear();
-});
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument();
+    });
+  })
 
-describe('DiaporamaExposition', () => {
+test('Second render in the browser with mockData from fetch query',
+  async () => {
+    render(
+      <MemoryRouter>
+        <DiaporamaExpositions
+          height="375px"
+          width="auto"
+        />
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument();
+    });
+  })
+
+test('Manual slider with fake timer', async () => {
+  window.__INITIAL_DATA__ = mockData;
+  jest.useFakeTimers();
   render(
-    <StaticRouter>
+    <MemoryRouter>
       <DiaporamaExpositions
         height="375px"
-        oeuvreData={mockData}
         width="auto"
-        isBrowser={false}
       />
-    </StaticRouter>,
+    </MemoryRouter>,
   );
 
-  expect(screen.getByText(/Turner/gi).textContent).toBe('Turner');
-});
+  await waitFor(() => {
+    expect(screen.getByRole('heading', { name: 'Turner' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'du 2020-08-01 au 2022-08-01' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Musée du Louvre' })).toBeInTheDocument();
+  });
+
+  act(() => { jest.advanceTimersByTime(2000) });
+  await waitFor(() => {
+    expect(screen.getByRole('heading', { name: 'Renoir' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'du 2020-08-01 au 2022-11-01' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Musée du Louvre' })).toBeInTheDocument();
+  });
+  act(() => { jest.advanceTimersByTime(2000) });
+  await waitFor(() => {
+    expect(screen.getByRole('heading', { name: 'Otto Freundlich ou l\'humanisme réinventé' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'du 2022-09-01 au 2022-12-01' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Musée du Louvre' })).toBeInTheDocument();
+  });
+  jest.useRealTimers();
+})
+
+
+test('Pressing left/right button while automatic slider', async () => {
+  window.__INITIAL_DATA__ = mockData;
+  const user = userEvent.setup();
+  render(
+    <MemoryRouter>
+      <DiaporamaExpositions
+        height="375px"
+        width="auto"
+      />
+    </MemoryRouter>
+  )
+  await waitFor(() => expect(screen.getByRole('heading', { name: 'Turner' })).toBeInTheDocument());
+  await new Promise((c) => setTimeout(c, 2000));
+  expect(await screen.findByRole('heading', { name: 'Renoir' })).toBeInTheDocument();
+  user.click(screen.getByTestId('RightButtonTest'));
+  user.click(screen.getByTestId('RightButtonTest'));
+  await waitFor(() => expect(screen.getByRole('heading', { name: "Augustin Lesage, la peinture médiumnique" })).toBeInTheDocument());
+  user.click(screen.getByTestId('LeftButtonTest'));
+  expect(await screen.findByRole('heading', { name: "Otto Freundlich ou l'humanisme réinventé" })).toBeInTheDocument();
+})
