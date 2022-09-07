@@ -43,6 +43,7 @@ const Diaporama = (props) => {
   }, [renderImage, diapoPause]);
 
   let currentImageUrl = props.imageUrls[currentImage - 1];
+  console.log('images : ', props.images)
   return (
     <div
       className="diaporama__wrapper"
